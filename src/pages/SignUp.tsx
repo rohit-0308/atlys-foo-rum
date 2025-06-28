@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { IoLogInOutline } from "react-icons/io5";
+import "../styles/auth-form.css";
 
 type SignUpProps = {
   isModal?: boolean;
@@ -23,61 +24,52 @@ const SignUp = ({
   };
 
   const content = (
-    <div className="bg-gray-200 border rounded-xl dark:bg-gray-700 dark:border-gray-600 p-6 w-full max-w-xl">
-      <div className="bg-white dark:bg-gray-900 p-8 rounded-2xl text-gray-900 dark:text-gray-100">
-        <div className="flex justify-center mb-4 text-4xl text-indigo-600 dark:text-indigo-400">
+    <div className="auth-container">
+      <div className="auth-card">
+        <div className="auth-icon">
           <IoLogInOutline />
         </div>
-        <h2 className="text-xl font-semibold mb-1 text-center">
-          Create an account to continue
-        </h2>
-        <p className="text-gray-500 dark:text-gray-400 text-sm mb-6 text-center">
+        <h2 className="auth-heading">Create an account to continue</h2>
+        <p className="auth-subtext">
           Create an account to access all the features on this app
         </p>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">
-            Email or username
-          </label>
+          <label className="auth-label">Email or username</label>
           <input
             type="email"
             placeholder="you@example.com"
-            className="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none"
+            className="auth-input"
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Password</label>
+          <label className="auth-label">Password</label>
           <input
             type="password"
             placeholder="Enter your password"
-            className="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none"
+            className="auth-input"
           />
         </div>
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">
-            Repeat Password
-          </label>
+          <label className="auth-label">Repeat Password</label>
           <input
             type="password"
             placeholder="Enter your password again"
-            className="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none"
+            className="auth-input"
           />
         </div>
 
         <button
           onClick={() => alert("function not implemented")}
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 rounded-lg mb-4"
+          className="auth-button"
         >
           Sign Up
         </button>
       </div>
-      <p className="text-sm pt-4 text-center text-gray-600 dark:text-gray-300">
+      <p className="auth-footer">
         Already have an account?{" "}
-        <button
-          onClick={handleSignInRedirect}
-          className="text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
-        >
+        <button onClick={handleSignInRedirect} className="auth-footer-link">
           Sign In
         </button>
       </p>
@@ -86,10 +78,7 @@ const SignUp = ({
 
   if (isModal) {
     return (
-      <div
-        onClick={onClose}
-        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-      >
+      <div onClick={onClose} className="auth-modal-overlay">
         <div
           className="animate-slide-down"
           onClick={(e) => e.stopPropagation()}
@@ -100,11 +89,7 @@ const SignUp = ({
     );
   }
 
-  return (
-    <div className="flex items-center justify-center min-h-screen bg-white dark:bg-gray-900 px-4 animate-slide-in-left">
-      {content}
-    </div>
-  );
+  return <div className="auth-fullscreen">{content}</div>;
 };
 
 export default SignUp;

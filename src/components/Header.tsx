@@ -7,10 +7,11 @@ import {
 } from "react-icons/io5";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import "../styles/component-utilities.css";
 
 const Header: React.FC = () => {
   const { isDark, toggleDarkMode } = useDarkMode();
-  const { user, logout } = useAuth(); // <-- Grab user and logout
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -18,28 +19,25 @@ const Header: React.FC = () => {
 
   const handleAuthAction = () => {
     if (user) {
-      logout(); // Call logout if already logged in
+      logout();
     } else {
       navigate("/signin");
     }
   };
 
   return (
-    <header className="h-16 flex justify-between items-center px-6 py-4 bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <header className="app-header">
       <div className="font-semibold text-2xl">◎ foo-rum</div>
-      <div className="flex items-center gap-6">
-
+      <div className="flex-row-gap">
         <button
           onClick={toggleDarkMode}
           aria-label="Toggle dark mode"
-          className={`relative w-14 h-7 flex items-center rounded-full p-1 transition-colors duration-300 ${
-            isDark ? "bg-gray-600" : "bg-gray-300"
-          }`}
+          className={`toggle-switch ${isDark ? "bg-gray-600" : "bg-gray-300"}`}
         >
           <span className="absolute left-1 text-sm">🌞</span>
           <span className="absolute right-1 text-sm">🌙</span>
           <div
-            className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
+            className={`toggle-thumb ${
               isDark ? "translate-x-7" : "translate-x-0"
             }`}
           />
@@ -48,15 +46,12 @@ const Header: React.FC = () => {
         {isAuthPage ? (
           <button
             onClick={() => navigate("/", { state: { animateFromRight: true } })}
-            className="flex items-center gap-1 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline"
+            className="text-button"
           >
             <IoArrowBackSharp /> Back to Home
           </button>
         ) : (
-          <button
-            onClick={handleAuthAction}
-            className="flex items-center gap-1 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline"
-          >
+          <button onClick={handleAuthAction} className="text-button">
             {user ? (
               <>
                 Logout <IoLogOutOutline />

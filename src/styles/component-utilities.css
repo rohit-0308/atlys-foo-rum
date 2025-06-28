@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+  /* === Generic Layout Utilities === */
+  .flex-row-gap {
+    @apply flex items-center gap-6;
+  }
+
+  .icon-btn {
+    @apply bg-red-100 dark:bg-red-900 text-red-500 dark:text-red-300 rounded p-2 hover:bg-red-200 dark:hover:bg-red-800 flex-shrink-0;
+  }
+
+  /* === Shared Card Styles === */
+  .card-container {
+    @apply bg-gray-200 border rounded-xl dark:bg-gray-500 dark:border-gray-500;
+  }
+
+  .card-inner {
+    @apply m-1 p-4 border rounded-xl bg-white dark:bg-gray-800;
+  }
+
+  .toolbar {
+    @apply flex justify-between items-center min-w-0;
+  }
+
+  .toolbar-btn {
+    @apply ml-5 flex gap-3 text-lg;
+  }
+
+  .toolbar-icon-group {
+    @apply flex gap-3 pr-2 border-r-2 border-gray-400 dark:border-white;
+  }
+
+  .action-bar {
+    @apply p-2 flex justify-between items-center border-t min-w-0;
+  }
+
+  .input-textarea {
+    @apply w-full outline-none text-gray-700 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 bg-transparent resize-none;
+  }
+
+  .icon-bar {
+    @apply m-2 pl-2 flex gap-6 text-gray-500 dark:text-gray-400 text-sm;
+  }
+
+  .icon-action {
+    @apply flex items-center gap-1 hover:text-red-500 dark:hover:text-red-400;
+  }
+
+  /* === PostCard === */
+  .post-header {
+    @apply flex items-center gap-3 mb-2;
+  }
+
+  .user-name {
+    @apply font-semibold text-sm text-gray-900 dark:text-gray-100;
+  }
+
+  .user-time {
+    @apply text-xs text-gray-500 dark:text-gray-400;
+  }
+
+  .post-content {
+    @apply flex gap-2 text-sm text-gray-800 dark:text-gray-200 mb-3;
+  }
+
+  /* === Header (new) === */
+  .app-header {
+    @apply h-16 flex justify-between items-center px-6 py-4 bg-white dark:bg-gray-900 text-gray-900 dark:text-white;
+  }
+
+  .text-button {
+    @apply flex items-center gap-1 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline;
+  }
+
+  .toggle-switch {
+    @apply relative w-14 h-7 flex items-center rounded-full p-1 transition-colors duration-300;
+  }
+
+  .toggle-thumb {
+    @apply w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-300;
+  }
+}

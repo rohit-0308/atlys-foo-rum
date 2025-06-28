@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom"; // 👈 ADD THIS
+import { useLocation } from "react-router-dom";
 import PostEditor from "../components/PostEditor";
 import PostCard from "../components/PostCard";
 import SignIn from "./SignIn";
@@ -9,7 +9,7 @@ import { posts as initialPosts } from "../data/post-data";
 
 const Feed = () => {
   const { user } = useAuth();
-  const location = useLocation(); // 👈 ADD THIS
+  const location = useLocation();
   const [animatePage, setAnimatePage] = useState(false);
 
   const [posts, setPosts] = useState(initialPosts);
