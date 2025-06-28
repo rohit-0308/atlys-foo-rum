@@ -1,69 +1,54 @@
-# React + TypeScript + Vite
+# ◎ foo-rum — A Modern Social Feed App 🧵
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**foo-rum** is a sleek, responsive, and interactive social feed application that mimics a minimal forum experience. Built using **React**, **TypeScript**, and **TailwindCSS**, it features smooth animations, authentication modals, emoji posts, dark mode support, and more.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Features
 
-## Expanding the ESLint configuration
+- ✅ **User Authentication**
+  - Sign In / Sign Up via modal or page
+  - LocalStorage-based session persistence
+  - Demo login support with hardcoded credentials
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- ✍️ **Post Editor**
+  - Emoji and text-based post creation
+  - Formatting icons for enhanced UI experience
+  - Posts appear with **animated transitions**
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 🌑 **Dark Mode**
+  - Toggle dark/light theme using the header switch
+  - Persistent across reloads using localStorage
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- 💬 **Feed System**
+  - View existing posts
+  - New posts animate into view from the top
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- 🎥 **Page & Modal Animations**
+  - Feed page slides in from the left after login or back navigation
+  - Sign-in/Sign-up modals and pages animate smoothly
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔐 Demo Credentials
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+You can log in using:
+
+| Email            | Password     |
+|------------------|--------------|
+| demo@example.com | password123  |
+| test@user.com    | testpass     |
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/rohit-0308/atlys-foo-rum
+cd foo-rum
+npm install
+npm run dev
+
+Open http://localhost:5173 in your browser
