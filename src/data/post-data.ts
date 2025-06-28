@@ -6,14 +6,14 @@ export type Post = {
   content: string;
 };
 
-export const post: Post[] = [
+export const posts: Post[] = [
   {
     id: 1,
     name: "Theresa Webb",
     avatar: "https://i.pravatar.cc/40?img=1",
     emoji: "😊",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla.",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const post: Post[] = [
     avatar: "https://i.pravatar.cc/40?img=2",
     emoji: "🔥",
     content:
-      "Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla.",
   },
   {
     id: 3,
@@ -29,6 +29,6 @@ export const post: Post[] = [
     avatar: "https://i.pravatar.cc/40?img=3",
     emoji: "🌟",
     content:
-      "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla.",
   },
 ];

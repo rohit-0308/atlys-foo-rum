@@ -25,7 +25,7 @@ const SignIn = ({
     const success = login(email, pass);
     if (!success) return setError("Invalid credentials");
     if (isModal && onClose) onClose();
-    else navigate("/");
+    else navigate("/", { state: { animateFromRight: true } });
   };
 
   const handleSignUpRedirect = () => {
@@ -100,14 +100,18 @@ const SignIn = ({
         onClick={onClose}
         className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
       >
-        <div onClick={(e) => e.stopPropagation()}>{content}</div>
+        <div
+          className="animate-slide-down"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {content}
+        </div>
       </div>
     );
   }
 
-
   return (
-    <div className="flex items-center justify-center min-h-screen bg-white dark:bg-gray-900 px-4">
+    <div className="flex items-center justify-center min-h-screen bg-white dark:bg-gray-900 px-4 animate-slide-in-left">
       {content}
     </div>
   );

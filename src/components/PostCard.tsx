@@ -1,8 +1,6 @@
-import React from "react";
 import { FaHeart, FaComment, FaShare } from "react-icons/fa";
 
 type PostCardProps = {
-  key: string;
   name: string;
   avatar: string;
   emoji: string;
@@ -10,7 +8,6 @@ type PostCardProps = {
 };
 
 const PostCard: React.FC<PostCardProps> = ({
-  key,
   name,
   avatar,
   emoji,
@@ -19,7 +16,6 @@ const PostCard: React.FC<PostCardProps> = ({
   return (
     <div className="bg-gray-200 border rounded-xl dark:bg-gray-500 dark:border-gray-500">
       <div className="card-shadow m-1 p-4 border rounded-xl bg-white dark:bg-gray-800 ">
-        {/* User Info */}
         <div className="flex items-center gap-3 mb-2">
           <img src={avatar} alt={name} className="w-8 h-8 rounded-full" />
           <div>
@@ -32,22 +28,23 @@ const PostCard: React.FC<PostCardProps> = ({
           </div>
         </div>
 
-        {/* Post Content */}
-        <div className="text-sm text-gray-800 dark:text-gray-200 mb-3">
+        <div className="flex gap-2 text-sm text-gray-800 dark:text-gray-200 mb-3">
           <span className="mr-2 text-xl">{emoji}</span>
           {content}
         </div>
       </div>
-      {/* Action Buttons */}
-      <div className="m-2 flex gap-6 text-gray-500 dark:text-gray-400 text-sm">
+      <div
+        onClick={() => alert("function not implemented")}
+        className="m-2 pl-2 flex gap-6 text-gray-500 dark:text-gray-400 text-sm"
+      >
         <button className="flex items-center gap-1 hover:text-red-500 dark:hover:text-red-400">
-          <FaHeart /> Like
+          <FaHeart />
         </button>
         <button className="flex items-center gap-1 hover:text-blue-500 dark:hover:text-blue-400">
-          <FaComment /> Comment
+          <FaComment />
         </button>
         <button className="flex items-center gap-1 hover:text-green-500 dark:hover:text-green-400">
-          <FaShare /> Share
+          <FaShare />
         </button>
       </div>
     </div>

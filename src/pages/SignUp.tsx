@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { IoLogInOutline } from "react-icons/io5";
 
@@ -14,7 +12,6 @@ const SignUp = ({
   onClose,
   onSwitchToSignIn,
 }: SignUpProps) => {
-  const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleSignInRedirect = () => {
@@ -68,7 +65,10 @@ const SignUp = ({
           />
         </div>
 
-        <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 rounded-lg mb-4">
+        <button
+          onClick={() => alert("function not implemented")}
+          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 rounded-lg mb-4"
+        >
           Sign Up
         </button>
       </div>
@@ -90,13 +90,18 @@ const SignUp = ({
         onClick={onClose}
         className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
       >
-        <div onClick={(e) => e.stopPropagation()}>{content}</div>
+        <div
+          className="animate-slide-down"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {content}
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-white dark:bg-gray-900 px-4">
+    <div className="flex items-center justify-center min-h-screen bg-white dark:bg-gray-900 px-4 animate-slide-in-left">
       {content}
     </div>
   );
