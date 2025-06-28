@@ -4,5 +4,6 @@
 
 html,
 body {
+  overflow-y: auto;
   @apply bg-white text-gray-900 ;
 }
