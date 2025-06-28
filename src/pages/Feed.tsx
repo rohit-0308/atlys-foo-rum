@@ -58,7 +58,10 @@ const Feed = () => {
           }
         }}
       >
-        <PostEditor onPost={handleAddPost} />
+        <PostEditor
+          onPost={handleAddPost}
+          onUnauthClick={() => setShowSignInModal(true)}
+        />
 
         <div className="space-y-4 mt-6">
           {posts.map((post) => (
@@ -73,6 +76,7 @@ const Feed = () => {
                 avatar={post.avatar}
                 emoji={post.emoji}
                 content={post.content}
+                onUnauthClick={() => setShowSignInModal(true)}
               />
             </div>
           ))}

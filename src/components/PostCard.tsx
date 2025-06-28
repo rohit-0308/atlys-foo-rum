@@ -1,11 +1,13 @@
 import { FaHeart, FaComment, FaShare } from "react-icons/fa";
 import "../styles/component-utilities.css";
+import { useAuth } from "../context/AuthContext";
 
 type PostCardProps = {
   name: string;
   avatar: string;
   emoji: string;
   content: string;
+  onUnauthClick?: () => void;
 };
 
 const PostCard: React.FC<PostCardProps> = ({
@@ -13,7 +15,18 @@ const PostCard: React.FC<PostCardProps> = ({
   avatar,
   emoji,
   content,
+  onUnauthClick,
 }) => {
+  const { user } = useAuth();
+
+  const handleProtectedClick = (fn: () => void) => {
+    if (!user) {
+      onUnauthClick?.();
+      return;
+    }
+    fn();
+  };
+
   return (
     <div className="card-container">
       <div className="card-inner">
@@ -30,17 +43,30 @@ const PostCard: React.FC<PostCardProps> = ({
           {content}
         </div>
       </div>
-      <div
-        onClick={() => alert("function not implemented")}
-        className="icon-bar"
-      >
-        <button className="icon-action">
+
+      <div className="icon-bar">
+        <button
+          onClick={() =>
+            handleProtectedClick(() => alert("function not implemented"))
+          }
+          className="icon-action"
+        >
           <FaHeart />
         </button>
-        <button className="flex items-center gap-1 hover:text-blue-500 dark:hover:text-blue-400">
+        <button
+          onClick={() =>
+            handleProtectedClick(() => alert("function not implemented"))
+          }
+          className="flex items-center gap-1 hover:text-blue-500 dark:hover:text-blue-400"
+        >
           <FaComment />
         </button>
-        <button className="flex items-center gap-1 hover:text-green-500 dark:hover:text-green-400">
+        <button
+          onClick={() =>
+            handleProtectedClick(() => alert("function not implemented"))
+          }
+          className="flex items-center gap-1 hover:text-green-500 dark:hover:text-green-400"
+        >
           <FaShare />
         </button>
       </div>

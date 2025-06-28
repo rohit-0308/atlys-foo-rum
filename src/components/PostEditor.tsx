@@ -12,19 +12,35 @@ import { PiListBullets } from "react-icons/pi";
 import { MdFormatListNumbered } from "react-icons/md";
 import { IoSend } from "react-icons/io5";
 import "../styles/component-utilities.css";
+import { useAuth } from "../context/AuthContext";
 
 type PostEditorProps = {
   onPost: (content: string, emoji: string) => void;
+  onUnauthClick: () => void;
 };
 
-const PostEditor = ({ onPost }: PostEditorProps) => {
+const PostEditor = ({ onPost, onUnauthClick }: PostEditorProps) => {
   const [content, setContent] = useState("");
+  const { user } = useAuth();
 
   const handleSubmit = () => {
+    if (!user) {
+      onUnauthClick();
+      return;
+    }
+
     const trimmed = content.trim();
     if (!trimmed) return;
     onPost(trimmed, "😎");
     setContent("");
+  };
+
+  const handleProtectedClick = (fn: () => void) => {
+    if (!user) {
+      onUnauthClick();
+      return;
+    }
+    fn();
   };
 
   return (
@@ -36,8 +52,11 @@ const PostEditor = ({ onPost }: PostEditorProps) => {
               <select className="text-sm border rounded-xl px-2 py-1 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 max-w-[20px] sm:max-w-[100px]">
                 <option>Paragraph</option>
               </select>
+
               <div
-                onClick={() => alert("function not implemented")}
+                onClick={() =>
+                  handleProtectedClick(() => alert("function not implemented"))
+                }
                 className="toolbar-btn"
               >
                 <div className="toolbar-icon-group">
@@ -56,8 +75,12 @@ const PostEditor = ({ onPost }: PostEditorProps) => {
               </div>
             </div>
           </div>
+
+          {/* Trash Icon - outside toolbar container */}
           <button
-            onClick={() => alert("function not implemented")}
+            onClick={() =>
+              handleProtectedClick(() => alert("function not implemented"))
+            }
             className="icon-btn"
           >
             <FaTrash />
@@ -69,12 +92,14 @@ const PostEditor = ({ onPost }: PostEditorProps) => {
           placeholder="😎 How are you feeling today?"
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          className="input-textarea"
+          className="input-textarea resize-none"
         />
 
         <div className="action-bar">
           <div
-            onClick={() => alert("function not implemented")}
+            onClick={() =>
+              handleProtectedClick(() => alert("function not implemented"))
+            }
             className="flex gap-4 text-gray-500 dark:text-gray-400 text-lg min-w-0 flex-shrink"
           >
             <div className="gap-5 flex justify-center items-center">
@@ -85,6 +110,7 @@ const PostEditor = ({ onPost }: PostEditorProps) => {
               <FaBell />
             </div>
           </div>
+
           <button
             onClick={handleSubmit}
             className="text-indigo-500 hover:text-indigo-700 text-lg flex-shrink-0"
