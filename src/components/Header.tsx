@@ -1,8 +1,11 @@
 import React from "react";
 import { useDarkMode } from "../context/DarkModeContext";
+import { IoLogInOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const { isDark, toggleDarkMode } = useDarkMode();
+  const navigate = useNavigate();
 
   return (
     <header className="flex justify-between items-center mb-6">
@@ -31,8 +34,11 @@ const Header = () => {
         </button>
 
         {/* Login */}
-        <button className="text-sm text-gray-700 dark:text-gray-300 hover:underline flex items-center gap-1">
-          Login <span>🔓</span>
+        <button
+          onClick={() => navigate("/signin")}
+          className="text-sm text-gray-700 dark:text-gray-300 hover:underline flex items-center gap-1"
+        >
+          Login <IoLogInOutline />
         </button>
       </div>
     </header>

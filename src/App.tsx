@@ -1,12 +1,16 @@
-import { useState } from "react";
-import Home from "./pages/Home";
+import { Routes, Route } from "react-router-dom";
+import Feed from "./pages/Feed";
+import SignIn from "./pages/SignIn";
+// import SignUp from "./pages/SignUp";
 import "./App.css";
 
 const App = () => {
   return (
-    <>
-      <Home />
-    </>
+    <Routes>
+      <Route path="/" element={<Feed />} />
+      <Route path="/signin" element={<SignIn />} />
+      {/* <Route path="/signup" element={<SignUp />} /> */}
+    </Routes>
   );
 };
 
