@@ -33,7 +33,7 @@ const PostEditor = ({ onPost }: PostEditorProps) => {
         <div className="toolbar">
           <div className="card-container">
             <div className="flex items-center p-1 gap-2 text-gray-600 dark:text-gray-300 text-sm flex-wrap min-w-0">
-              <select className="text-sm border rounded-xl px-2 py-1 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 max-w-[100px] min-w-0">
+              <select className="text-sm border rounded-xl px-2 py-1 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 max-w-[20px] sm:max-w-[100px]">
                 <option>Paragraph</option>
               </select>
               <div
