@@ -38,7 +38,7 @@ const PostCard: React.FC<PostCardProps> = ({
           </div>
         </div>
 
-        <div className="post-content">
+        <div className="post-content break-words">
           <span className="mr-2 text-xl">{emoji}</span>
           {content}
         </div>
